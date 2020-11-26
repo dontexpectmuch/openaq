@@ -5,17 +5,16 @@
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
         var cols = [{
-            id: "name",
-            dataType: tableau.dataTypeEnum.string,
-            alias: "Name"
-        }, {
-            id: "city",
-            alias: "City",
+            id: "id",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "date",
+            id: "mag",
+            alias: "magnitude",
+            dataType: tableau.dataTypeEnum.float
+        }, {
+            id: "title",
             alias: "title",
-            dataType: tableau.dataTypeEnum.date
+            dataType: tableau.dataTypeEnum.string
         }, {
             id: "lat",
             alias: "latitude",
@@ -41,7 +40,7 @@
 
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("https://api.openaq.org/v1/measurements", function(resp) {
+        $.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson", function(resp) {
             var feat = resp.features,
                 tableData = [];
 
