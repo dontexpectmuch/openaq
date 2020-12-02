@@ -5,24 +5,24 @@
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
         var cols = [{
-            id: "id",
+            id: "name",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "mag",
-            alias: "magnitude",
-            dataType: tableau.dataTypeEnum.float
-        }, {
-            id: "title",
-            alias: "title",
+            id: "city",
+            alias: "City",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "lat",
+            id: "country",
+            alias: "Country",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "latitude",
             alias: "latitude",
             columnRole: "dimension",
             // Do not aggregate values as measures in Tableau--makes it easier to add to a map 
             dataType: tableau.dataTypeEnum.float
         }, {
-            id: "lon",
+            id: "longitude",
             alias: "longitude",
             columnRole: "dimension",
             // Do not aggregate values as measures in Tableau--makes it easier to add to a map 
@@ -30,8 +30,8 @@
         }];
 
         var tableSchema = {
-            id: "earthquakeFeed",
-            alias: "Earthquakes with magnitude greater than 4.5 in the last seven days",
+            id: "openaq",
+            alias: "Air Quality Data",
             columns: cols
         };
 
