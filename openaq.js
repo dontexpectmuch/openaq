@@ -40,7 +40,7 @@
 
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson", function(resp) {
+        $.getJSON("https://api.openaq.org/v1/measurements", function(resp) {
             var feat = resp.features,
                 tableData = [];
 
