@@ -27,6 +27,18 @@
             columnRole: "dimension",
             // Do not aggregate values as measures in Tableau--makes it easier to add to a map 
             dataType: tableau.dataTypeEnum.float
+        }, {
+            id: "value",
+            alias: "Value",
+            dataType: tableau.dataTypeEnum.float
+        }, {
+            id: "parameter",
+            alias: "Parameter",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "date",
+            alias: "Date",
+            dataType: tableau.dataTypeEnum.datetime
         }];
 
         var tableSchema = {
