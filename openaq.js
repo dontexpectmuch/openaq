@@ -6,6 +6,7 @@
     myConnector.getSchema = function(schemaCallback) {
         var cols = [{
             id: "name",
+            alias: "Name",
             dataType: tableau.dataTypeEnum.string
         }, {
             id: "city",
@@ -17,13 +18,13 @@
             dataType: tableau.dataTypeEnum.string
         }, {
             id: "latitude",
-            alias: "latitude",
+            alias: "Latitude",
             columnRole: "dimension",
             // Do not aggregate values as measures in Tableau--makes it easier to add to a map 
             dataType: tableau.dataTypeEnum.float
         }, {
             id: "longitude",
-            alias: "longitude",
+            alias: "Longitude",
             columnRole: "dimension",
             // Do not aggregate values as measures in Tableau--makes it easier to add to a map 
             dataType: tableau.dataTypeEnum.float
@@ -52,7 +53,7 @@
 
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("https://api.openaq.org/v1/measurements", function(resp) {
+        $.getJSON("api.openaq.org/v1/measurments.json?date_from=2018-07-01&date_to=2018-10-01&parameter=pm25&coordinates=47.597,-122.3197&radius=200000", function(resp) {
             var feat = resp.features,
                 tableData = [];
 
