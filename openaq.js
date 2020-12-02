@@ -1,5 +1,5 @@
 (function() {
-    // Create the connector object
+    // Create the connector object 
     var myConnector = tableau.makeConnector();
 
     // Define the schema
@@ -59,11 +59,15 @@
             // Iterate over the JSON object
             for (var i = 0, len = feat.length; i < len; i++) {
                 tableData.push({
-                    "id": feat[i].id,
-                    "mag": feat[i].properties.mag,
-                    "title": feat[i].properties.title,
-                    "lon": feat[i].geometry.coordinates[0],
-                    "lat": feat[i].geometry.coordinates[1]
+                    "name": feat[i].name,
+                    "city": feat[i].city,
+                    "country": feat[i].country,
+                    "longitude": feat[i].coordinates.longitude,
+                    "latitude": feat[i].coordinates.latitude,
+                    "parameter": feat[i].parameter,
+                    "unit": feat[i].unit,
+                    "value": feat[i].value,
+                    "date": new Date(feat[i].date.local)
                 });
             }
 
@@ -77,7 +81,7 @@
     // Create event listeners for when the user submits the form
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "USGS Earthquake Feed"; // This will be the data source name in Tableau
+            tableau.connectionName = "Air Quality Data"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });
     });
