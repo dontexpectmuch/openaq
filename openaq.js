@@ -53,8 +53,8 @@
 
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("api.openaq.org/v1/measurments.json?date_from=2018-07-01&date_to=2018-10-01&parameter=pm25&coordinates=47.597,-122.3197&radius=200000", function(resp) {
-            var feat = resp.features,
+        $.getJSON("api.openaq.org/v1/measurments", function(resp) {
+            var feat = resp.results,
                 tableData = [];
 
             // Iterate over the JSON object
